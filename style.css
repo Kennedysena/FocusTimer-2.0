@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-text-smoothing: antialiased;
+  -moz-osx-text-smoothing: grayscale;
+}
+
+:root {
+  font-size: 62.5%;
+  --hue: 194;
+  --hue-grey: 240;
+  --hue-green: 181;
+  --hue-blue: 215;
+  --bg-color: hsl(var(--hue), 5%, 7%);
+  --text-color: hsl(var(--hue), 40%, 98%);
+  --controls-bg-color: hsl(var(--hue), 0%, 14%);
+  --primary-color: hsl(var(--hue-blue), 58%, 71%);
+  --button-secondary: hsl(var(--hue-grey), 9%, 89%);
+}
+
+html.light {
+  --bg-color: hsl(var(--hue), 40%, 98%);
+  --text-color: hsl(var(--hue), 5%, 7%);
+  --controls-bg-color: hsl(var(--hue), 0%, 14%);
+  --primary-color: hsl(var(--hue-blue), 58%, 71%);
+}
+
+html.light .ph-sun,
+html:not(.light) .ph-moon {
+  display: none;
+}
+
+#toggle-mode {
+  position: absolute;
+  right: 3.2rem;
+  top: 3.2rem;
+  font-size: 3.2rem;
+  line-height: 0;
+}
+
+.sr-only {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  overflow: hidden;
+
+  margin: -1px;
+  padding: 0px;
+  border: 0;
+  appearance: none;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: grid;
+  height: 100vh;
+  place-content: center;
+}
+
+#main-container {
+  display: flex;
+  gap: 19.2rem;
+  width: 82.1rem;
+  height: 33.6rem;
+}
+
+#app {
+  display: grid;
+  justify-content: center;
+}
+
+.flex {
+  display: flex;
+}
+
+#timer {
+  font-size: 12.6rem;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  margin-top: 5.8rem;
+}
+
+#controls {
+  margin-bottom: 6.5rem;
+  gap: 4rem;
+}
+
+#songs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 3.2rem;
+}
+
+#songs button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2.4rem;
+  background-color: var(--button-secondary);
+  padding: 4.8rem 4.7rem;
+  width: 13.3rem;
+  height: 15.1rem;
+}
+
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 5.2rem;
+  color: var(--text-color);
+}
+
+button:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.running .ph-play-circle,
+.running .ph-time,
+html:not(.running) .ph-pause-circle,
+html:not(.running) .ph-stop-circle
+{
+  display: none;
+}
