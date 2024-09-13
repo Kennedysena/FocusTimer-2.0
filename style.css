@@ -12,23 +12,25 @@
   --hue-grey: 240;
   --hue-green: 181;
   --hue-blue: 215;
+  --hue-white: 0;
   --bg-color: hsl(var(--hue), 5%, 7%);
   --text-color: hsl(var(--hue), 40%, 98%);
-  --controls-bg-color: hsl(var(--hue), 0%, 14%);
-  --primary-color: hsl(var(--hue-blue), 58%, 71%);
-  --button-secondary: hsl(var(--hue-grey), 9%, 89%);
+  --primary-color: hsl(var(--hue-green), 84%, 25%);
+  --button-secondary: hsl(var(--hue-white), 0%, 100%);
 }
 
 html.light {
   --bg-color: hsl(var(--hue), 40%, 98%);
-  --text-color: hsl(var(--hue), 5%, 7%);
+  --text-color: hsl(var(--hue-grey), 6%, 17%);
   --controls-bg-color: hsl(var(--hue), 0%, 14%);
-  --primary-color: hsl(var(--hue-blue), 58%, 71%);
+  --primary-color: hsl(var(--hue), 97%, 31%);
+  --button-secondary: hsl(var(--hue-grey), 9%, 89%);
 }
 
 html.light .ph-sun,
 html:not(.light) .ph-moon {
   display: none;
+  background-color: hsl(0, 0%, 100%);
 }
 
 #toggle-mode {
@@ -94,6 +96,14 @@ body {
   gap: 3.2rem;
 }
 
+#songs button.active {
+  background: var(--primary-color);
+}
+
+#songs button.active img {
+  filter: brightness(0) invert(1);
+}
+
 #songs button {
   display: flex;
   align-items: center;
@@ -103,6 +113,9 @@ body {
   padding: 4.8rem 4.7rem;
   width: 13.3rem;
   height: 15.1rem;
+}
+#songs button img {
+  filter: none; /* Sem filtro para manter as cores originais */
 }
 
 button {
@@ -115,13 +128,12 @@ button {
 
 button:hover {
   transform: scale(1.1);
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.1s ease-in-out;
 }
 
 .running .ph-play-circle,
-.running .ph-time,
+.running .ph-timer,
 html:not(.running) .ph-pause-circle,
-html:not(.running) .ph-stop-circle
-{
+html:not(.running) .ph-stop-circle {
   display: none;
 }
