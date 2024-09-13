@@ -57,10 +57,15 @@ export function plus() {
 
 export function min() {
   let minutes = Number(elem.minutes.textContent);
-  if (minutes % 5 === 0) {
-    minutes -= 5;
+  if (minutes <= 0) {
+    reset(); 
+  } else if (minutes % 5 === 0) {
+    minutes -= 5; 
+    if (minutes < 5) {
+      minutes = 5; 
+    }
   } else {
-    minutes = Math.floor(minutes / 5) * 5;
+    minutes = Math.floor(minutes / 5) * 5; 
   }
 
   if (state.isRunning) {
